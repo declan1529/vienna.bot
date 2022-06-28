@@ -35,7 +35,11 @@ if __name__ == '__main__':
 @bot.event
 async def on_ready():
     print(config.STARTUP_MESSAGE)
+<<<<<<< HEAD
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="$help | Vienna".format(config.BOT_PREFIX)))
+=======
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="music type {}-help".format(config.BOT_PREFIX)))
+>>>>>>> ba2d022511c45b540b53fac995d8dcd40e1e95e0
 
     for guild in bot.guilds:
         await register(guild)
