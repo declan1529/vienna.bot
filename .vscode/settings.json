@@ -1,0 +1,7 @@
+{
+    "rpc.detailsEditing": "In {workspace} {problems}",
+    "rpc.detailsIdling": "In {workspace} {problems}",
+    "rpc.lowerDetailsEditing": "Editing {file_name}",
+    "rpc.lowerDetailsIdling": "Editing {file_name}",
+    "rpc.checkIdle": false
+}
