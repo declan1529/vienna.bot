@@ -1,4 +1,6 @@
-import os
+import os, traceback, requests, time
+import stayin_alive
+os.system("pip3 install -r requirements.txt")
 
 import discord
 from discord.ext import commands
@@ -33,7 +35,15 @@ if __name__ == '__main__':
 @bot.event
 async def on_ready():
     print(config.STARTUP_MESSAGE)
+<<<<<<< HEAD
     await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="*help | Vienna".format(config.BOT_PREFIX)))
+=======
+<<<<<<< HEAD
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="$help | Vienna".format(config.BOT_PREFIX)))
+=======
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="music type {}-help".format(config.BOT_PREFIX)))
+>>>>>>> ba2d022511c45b540b53fac995d8dcd40e1e95e0
+>>>>>>> a8a551ace9e96d2f340abfce25d4aa164031e988
 
     for guild in bot.guilds:
         await register(guild)
@@ -80,5 +90,17 @@ async def register(guild):
                     except Exception as e:
                         print(e)
 
-
-bot.run(config.BOT_TOKEN, bot=True, reconnect=True)
+try:
+    bot.run(config.BOT_TOKEN, bot=True, reconnect=True)
+except:
+    print(traceback.format_exc())
+    embed = discord.Embed(
+        title="Vienna may be offline",
+        description="Please check the repl for status, doing autorestart",
+        color=discord.Color.red()
+    ).to_dict()
+    requests.post(url="https://discord.com/api/webhooks/989721389491687444/FthAK9jNan61DXAkYirifg4tY9Uif4KYleQfG4rL-XFDsLjHwZ4L-6gFGNT4HLdp7Y4g",json={'embeds':[embed]})
+    time.sleep(10)
+    os.system("busybox reboot")
+    
+    
